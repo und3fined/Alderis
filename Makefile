@@ -1,10 +1,10 @@
 ifeq ($(ROOTLESS),1)
 	export THEOS_PACKAGE_SCHEME = rootless
-	export TARGET = iphone:latest:15.0
+	export TARGET = iphone:16.5:14.0
 else ifeq ($(BUILD_LEGACY_ARM64E),1)
-	export TARGET = iphone:13.7:12.0
+	export TARGET = iphone:16.5:14.0
 else
-	export TARGET = iphone:latest:12.0
+	export TARGET = iphone:16.5:14.0
 endif
 
 FRAMEWORK_OUTPUT_DIR = $(THEOS_OBJ_DIR)/install$(THEOS_PACKAGE_INSTALL_PREFIX)/Library/Frameworks
@@ -27,7 +27,7 @@ Alderis_XCODEFLAGS = \
 	LOCAL_LIBRARY_DIR="$(THEOS_PACKAGE_INSTALL_PREFIX)/Library" \
 	ARCHS="$(ARCHS)"
 
-SUBPROJECTS = lcpshim
+# SUBPROJECTS = lcpshim
 
 include $(THEOS_MAKE_PATH)/xcodeproj.mk
 include $(THEOS_MAKE_PATH)/aggregate.mk
